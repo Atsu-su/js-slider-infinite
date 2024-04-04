@@ -1,0 +1,172 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  vertical-align: bottom;
+}
+
+/* JSにて定義
+:root {
+  --start:;
+  --end:;
+  --duration:;
+  --position:;
+}
+*/
+
+@keyframes slideAnime {
+  0% {
+    transform: translate(var(--position), -50%) translateX(var(--start));
+  }
+
+  100% {
+    transform: translate(var(--position), -50%) translateX(var(--end));
+  }
+}
+
+.animation-slide {
+  animation-name: slideAnime;
+  animation-duration: var(--duration);
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+header {
+  height: 120px;
+}
+
+.outer-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.outer {
+  width: 780px;
+  height: 220px;
+  order: 1;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid gray;
+}
+
+.inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(var(--position), -50%);
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .element {
+  width: 220px;
+  height: 180px;
+  flex-shrink: 0;
+  object-fit: contain;
+} */
+
+.element {
+  width: 220px;
+  height: 180px;
+  flex-shrink: 0;
+  display: grid;
+  place-content: center;
+  font-size: 64px;
+  background-color: rgba(34, 139, 34, 0.1);
+}
+
+/* .element:nth-child(3n+1) {
+  background-color: rgba(34, 139, 34, 0.1);
+}
+
+.element:nth-child(3n+2) {
+  background-color: rgba(169, 169, 169, 0.3);
+}
+
+.element:nth-child(3n) {
+  background-color: rgba(240, 230, 140, 0.2);
+} */
+
+.button {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  color: white;
+  font-size: 24px;
+  border: none;
+  border-radius: 100vw;
+}
+
+.button:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.button-left {
+  order: 2;
+  background-color: rgb(255, 138, 80);
+}
+
+.button-left:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  transform: rotate(45deg);
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.button-right {
+  order: 0;
+  background-color: rgb(199, 199, 199);
+}
+
+.button-right:before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  display: block;
+  position: absolute;
+  top: 12px;
+  left: 17px;
+  transform: rotate(-134deg);
+  border-top: 5px solid white;
+  border-right: 5px solid white;
+}
+
+.circle-wrapper {
+  display: flex;
+  gap: 15px;
+}
+
+.circle {
+  width: 15px;
+  height: 15px;
+  opacity: 0.3;
+  border-radius: 100vw;
+  background-color: tomato
+}
+
+.circle-selected {
+  opacity: 0.8;
+}
